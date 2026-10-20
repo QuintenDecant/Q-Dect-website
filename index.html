@@ -122,6 +122,8 @@
   .screens img.on { opacity: 1; transform: none; animation: showScroll 9s cubic-bezier(.45,.05,.35,1) forwards; }
   @keyframes showScroll { 0%, 18% { object-position: 50% 0%; } 100% { object-position: 50% 62%; } }
   .show-label { position: absolute; right: 14px; bottom: 14px; z-index: 3; font-size: .8rem; font-weight: 700; padding: 6px 13px; border-radius: 999px; background: linear-gradient(120deg, var(--accent), #ffcf70); color: #2b1a00; box-shadow: 0 6px 20px rgba(242,165,65,.5); }
+  .show-tag { position: absolute; left: 14px; bottom: 14px; z-index: 3; font-size: .75rem; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: rgba(13,26,24,.82); color: #fff; backdrop-filter: blur(6px); }
+  .show-cap { text-align: center; margin: 16px 0 0; font-size: .9rem; color: var(--ink-soft); }
   .show-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
   .show-dots button { width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0; background: var(--line); cursor: pointer; transition: width .4s var(--ease), background .4s; }
   .show-dots button.on { width: 28px; background: var(--brand); }
@@ -377,7 +379,7 @@
     <div class="wrap hero-grid">
       <div>
         <span class="pill reveal"><b>GRATIS</b><span class="pulse"></span> Analyse van uw huidige website</span>
-        <h1 class="reveal" style="--d:.08s">Een website die <span class="underline">klanten<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 80 4, 200 4, 298 12" fill="none" stroke="#f2a541" stroke-width="6" stroke-linecap="round"/></svg></span> oplevert voor uw <span class="rotator" aria-live="polite"><span class="on">bouwbedrijf.</span><span>garage.</span><span>bakkerij.</span></span></h1>
+        <h1 class="reveal" style="--d:.08s">Een website die <span class="underline">klanten<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 80 4, 200 4, 298 12" fill="none" stroke="#f2a541" stroke-width="6" stroke-linecap="round"/></svg></span> oplevert voor uw <span class="rotator" aria-live="polite"><span class="on">zaak.</span><span>KMO.</span><span>praktijk.</span><span>winkel.</span><span>bedrijf.</span></span></h1>
         <p class="lead reveal" style="--d:.16s">Een verouderde website kost u stilletjes klanten. Q-Dect Web bouwt snelle, veilige websites die er schitterend uitzien op elke gsm en die mensen ook écht terugvinden in Google.</p>
         <div class="hero-cta reveal" style="--d:.24s">
           <a href="#contact" class="btn btn-primary magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
@@ -385,7 +387,7 @@
         </div>
         <div class="trust reveal" style="--d:.32s">
           <div class="avatars" aria-hidden="true"><i style="background:#0e7c6b">B</i><i style="background:#f2a541">G</i><i style="background:#ff7a59">S</i><i style="background:#14a38c">+</i></div>
-          <span>Voor bakkers, garages, schrijnwerkers en vrije beroepen. Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span>
+          <span>Voor zelfstandigen, KMO's en vrije beroepen in elke sector. Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span>
         </div>
       </div>
 
@@ -397,8 +399,10 @@
             <img src="media/site-garage.jpg" alt="Voorbeeld van een moderne website voor een garage" width="1280" height="3100" loading="lazy">
             <img src="media/site-bakkerij.jpg" alt="Voorbeeld van een moderne website voor een bakkerij" width="1280" height="3100" loading="lazy">
           </div>
+          <span class="show-tag" id="showTag">Voorbeeld · Renovatie</span>
           <span class="show-label">✨ Gemaakt door Q-Dect Web</span>
         </div>
+        <p class="show-cap">Drie voorbeelden uit honderden mogelijkheden. Elke sector, elke stijl, volledig op maat.</p>
         <div class="show-dots" id="showDots"><button class="on" aria-label="Renovatie"></button><button aria-label="Garage"></button><button aria-label="Bakkerij"></button></div>
       </div>
     </div>
@@ -658,18 +662,24 @@
 
   // Rotating word
   const words = [...document.querySelectorAll('.rotator span')]; let wi = 0;
-  const shots = [...document.querySelectorAll('#show .screens img')], dots = [...document.querySelectorAll('#showDots button')];
-  const urls = ['🔒 bouwteam-voorbeeld.be', '🔒 garage-voorbeeld.be', '🔒 bakkerij-voorbeeld.be'], showUrl = document.getElementById('showUrl');
-  const goTo = n => {
+  if (!reduce) setInterval(() => {
     const cur = words[wi]; cur.classList.remove('on'); cur.classList.add('off');
     setTimeout(() => cur.classList.remove('off'), 500);
-    wi = n; words[wi].classList.add('on');
-    shots.forEach((s, i) => { s.classList.toggle('on', i === wi); if (i === wi) { s.style.animation = 'none'; s.offsetHeight; s.style.animation = ''; } });
-    dots.forEach((d, i) => d.classList.toggle('on', i === wi));
-    showUrl.textContent = urls[wi];
+    wi = (wi + 1) % words.length; words[wi].classList.add('on');
+  }, 2600);
+
+  // Voorbeeldsites
+  const shots = [...document.querySelectorAll('#show .screens img')], dots = [...document.querySelectorAll('#showDots button')];
+  const urls = ['🔒 bouwteam-voorbeeld.be', '🔒 garage-voorbeeld.be', '🔒 bakkerij-voorbeeld.be'], tags = ['Voorbeeld · Renovatie', 'Voorbeeld · Garage', 'Voorbeeld · Bakkerij'];
+  const showUrl = document.getElementById('showUrl'), showTag = document.getElementById('showTag'); let si = 0;
+  const showGo = n => {
+    si = n;
+    shots.forEach((s, i) => { s.classList.toggle('on', i === si); if (i === si) { s.style.animation = 'none'; s.offsetHeight; s.style.animation = ''; } });
+    dots.forEach((d, i) => d.classList.toggle('on', i === si));
+    showUrl.textContent = urls[si]; showTag.textContent = tags[si];
   };
-  let rot = reduce ? null : setInterval(() => goTo((wi + 1) % words.length), 6000);
-  dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); if (rot) { clearInterval(rot); rot = setInterval(() => goTo((wi + 1) % words.length), 6000); } }));
+  let rot = reduce ? null : setInterval(() => showGo((si + 1) % shots.length), 7000);
+  dots.forEach((d, i) => d.addEventListener('click', () => { showGo(i); if (rot) { clearInterval(rot); rot = setInterval(() => showGo((si + 1) % shots.length), 7000); } }));
 
   // Before / after slider
   const ba = document.getElementById('ba'), range = document.getElementById('baRange');
