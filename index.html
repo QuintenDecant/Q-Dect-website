@@ -4,7 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Q-Dect Web | Websites die klanten opleveren</title>
-<meta name="description" content="Q-Dect Web bouwt snelle, veilige en mobielvriendelijke websites voor KMO's en zelfstandigen in de Benelux. Vaste prijs, persoonlijke opvolging.">
+<meta name="description" content="Q-Dect Web bouwt snelle, veilige en mobielvriendelijke websites voor vakmensen, zelfstandigen en KMO's. Uit Antwerpen, actief in heel Vlaanderen en de Benelux. Vaste prijs, persoonlijke opvolging.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://qdect.be/">
+<meta name="theme-color" content="#0d1a18">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:site_name" content="Q-Dect Web">
+<meta property="og:title" content="Q-Dect Web | Websites die klanten opleveren">
+<meta property="og:description" content="Snelle, veilige en mobielvriendelijke websites voor vakmensen, zelfstandigen en KMO's. Vaste prijs en gratis analyse van uw huidige website.">
+<meta property="og:url" content="https://qdect.be/">
+<meta property="og:image" content="https://qdect.be/media/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,700&display=swap" rel="stylesheet">
@@ -269,6 +282,19 @@
   .featured-wrap .badge { position: absolute; top: 22px; right: 22px; background: var(--accent); color: var(--ink); font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
   @property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
   @keyframes spin { to { --a: 360deg; } }
+  .promise { display: flex; align-items: center; gap: 16px; max-width: 640px; margin: 40px auto 0; padding: 18px 22px; border-radius: 16px; background: #fff; border: 1.5px solid rgba(14,124,107,.3); box-shadow: 0 10px 30px -18px rgba(14,124,107,.5); }
+  .promise-ico { font-size: 1.8rem; }
+  .promise b { display: block; color: var(--brand-dark); }
+  .promise span { color: var(--ink-soft); }
+  .mobile-bar { display: none; }
+  @media (max-width: 620px) {
+    .mobile-bar { display: flex; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 45; gap: 10px; }
+    .mobile-bar a { flex: 1; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
+    .mobile-bar .call { background: var(--ink); color: #fff; }
+    .mobile-bar .wa { background: #25d366; color: #05361b; }
+    footer { padding-bottom: 96px; }
+    .toast { bottom: 90px; }
+  }
   .note { margin-top: 26px; color: var(--ink-soft); font-size: .95rem; text-align: center; }
 
   /* FAQ */
@@ -304,7 +330,8 @@
   .chips span { display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); font-size: .88rem; font-weight: 500; transition: .25s var(--ease); background: #fff; }
   .chips span:hover { border-color: var(--brand); }
   .chips input:checked + span { background: var(--ink); color: #fff; border-color: var(--ink); }
-  .form-title { font-weight: 700; font-size: .9rem; margin: 4px 0 -4px; }
+  .form-title { font-weight: 700; font-size: 1.05rem; margin: 4px 0 2px; }
+  .form-note { margin: -4px 0 0; font-size: .85rem; color: var(--ink-soft); text-align: center; }
 
 
   footer { padding: 40px 0 50px; color: var(--ink-soft); font-size: .9rem; }
@@ -371,12 +398,12 @@
         <h1 class="reveal" style="--d:.08s">Een website die <span class="underline">klanten<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 80 4, 200 4, 298 12" fill="none" stroke="#f2a541" stroke-width="6" stroke-linecap="round"/></svg></span> oplevert voor uw <span class="rotator" aria-live="polite"><span class="on">schrijnwerkerij.</span><span>garage.</span><span>bakkerij.</span><span>dakwerken.</span><span>praktijk.</span><span>zaak.</span></span></h1>
         <p class="lead reveal" style="--d:.16s">Een verouderde website kost u stilletjes klanten. Q-Dect Web bouwt snelle, veilige websites die er schitterend uitzien op elke gsm en die mensen ook écht terugvinden in Google.</p>
         <div class="hero-cta reveal" style="--d:.24s">
-          <a href="#contact" class="btn btn-primary magnetic">Vraag een vrijblijvend voorstel <span class="arrow">→</span></a>
+          <a href="#contact" class="btn btn-primary magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
           <a href="#check" class="btn btn-ghost">Doe de website-check</a>
         </div>
         <div class="trust reveal" style="--d:.32s">
           <div class="avatars" aria-hidden="true"><i style="background:#0e7c6b">B</i><i style="background:#f2a541">G</i><i style="background:#ff7a59">S</i><i style="background:#14a38c">+</i></div>
-          <span>Voor bakkers, garages, schrijnwerkers en vrije beroepen in heel de Benelux</span>
+          <span>Voor bakkers, garages, schrijnwerkers en vrije beroepen. Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span>
         </div>
       </div>
 
@@ -427,7 +454,7 @@
           <span class="ba-label r">✨ Met Q-Dect Web</span>
           <input type="range" min="0" max="100" value="36" id="baRange" aria-label="Vergelijk de oude en de nieuwe website">
         </div>
-        <p class="ba-hint"><b>Sleep het bolletje</b> en zie het verschil.</p>
+        <p class="ba-hint"><b>Sleep het bolletje</b> en zie het verschil. <span style="opacity:.7">(Illustratief voorbeeld)</span></p>
       </div>
     </div>
   </section>
@@ -481,7 +508,7 @@
         <div class="fill"></div>
         <div class="step"><div class="dot">1</div><h3>Kennismaking</h3><p>We bespreken uw zaak, uw klanten en wat uw website moet opleveren.</p><span class="time">± 30 minuten</span></div>
         <div class="step"><div class="dot">2</div><h3>Voorstel</h3><p>U krijgt een helder voorstel met vaste prijs en planning. Geen kleine lettertjes.</p><span class="time">Binnen 2 werkdagen</span></div>
-        <div class="step"><div class="dot">3</div><h3>Ontwerp & bouw</h3><p>We tonen het ontwerp, verwerken uw feedback en bouwen alles af.</p><span class="time">2 à 3 weken</span></div>
+        <div class="step"><div class="dot">3</div><h3>Ontwerp & bouw</h3><p>We tonen het ontwerp, verwerken uw feedback en bouwen alles af.</p><span class="time">Start: 2 weken · Pro: 3 à 4 weken</span></div>
         <div class="step"><div class="dot">4</div><h3>Lancering</h3><p>Uw site gaat live. Daarna blijven we beschikbaar voor aanpassingen.</p><span class="time">🚀 Online!</span></div>
       </div>
     </div>
@@ -539,7 +566,7 @@
         </ul>
         <div class="sign">
           <span class="serif">Quinten Decant</span>
-          <a href="#contact" class="btn btn-primary magnetic">Plan een kennismaking <span class="arrow">→</span></a>
+          <a href="#contact" class="btn btn-primary magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -558,7 +585,7 @@
           <p>Snel en professioneel online, ideaal voor zelfstandigen.</p>
           <div class="amount">vanaf €500 <small>eenmalig</small></div>
           <ul><li>Website van 1 tot 3 pagina's</li><li>Contactformulier en klikbaar telefoonnummer</li><li>Basis Google-optimalisatie</li><li>Online binnen 2 weken</li></ul>
-          <a href="#contact" class="btn btn-ghost">Kies Start <span class="arrow">→</span></a>
+          <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
         <div class="featured-wrap reveal" style="--d:.1s">
           <div class="card price">
@@ -566,8 +593,8 @@
             <h3>Pro</h3>
             <p>Voor KMO's die hun diensten en realisaties willen tonen.</p>
             <div class="amount">vanaf €1.000 <small style="color:rgba(255,255,255,.6)">eenmalig</small></div>
-            <ul><li>Tot 8 pagina's</li><li>Fotogalerij met realisaties</li><li>Offerteformulier</li><li>Google Bedrijfsprofiel op punt</li><li>Zelf teksten en foto's aanpassen</li></ul>
-            <a href="#contact" class="btn btn-accent magnetic">Vraag een voorstel <span class="arrow">→</span></a>
+            <ul><li>Tot 8 pagina's</li><li>Fotogalerij met realisaties</li><li>Offerteformulier</li><li>Google Bedrijfsprofiel op punt</li><li>Zelf teksten en foto's aanpassen</li><li>Online binnen 3 à 4 weken</li></ul>
+            <a href="#contact" class="btn btn-accent magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
           </div>
         </div>
         <div class="card price spot reveal" style="--d:.2s">
@@ -575,9 +602,10 @@
           <p>Zorgeloos online, afgestemd op wat uw zaak nodig heeft.</p>
           <div class="amount">Op aanvraag</div>
           <ul><li>Hosting inbegrepen</li><li>Https-certificaat en back-ups van elke versie</li><li>Aanpassingen volgens afspraak</li><li>Persoonlijke support via mail of telefoon</li></ul>
-          <a href="#contact" class="btn btn-ghost">Vraag een prijs <span class="arrow">→</span></a>
+          <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
       </div>
+      <div class="promise reveal"><span class="promise-ico">🛡️</span><div><b>Onze belofte</b><span>U betaalt pas het saldo als u tevreden bent met het ontwerp.</span></div></div>
       <p class="note reveal">Webshop of koppeling met uw software nodig? Dan maken we graag een voorstel op maat.</p>
     </div>
   </section>
@@ -589,11 +617,15 @@
         <h2>Goed om <span class="serif">te weten.</span></h2>
       </div>
       <div class="reveal">
-        <details><summary>Hoe lang duurt het voor mijn nieuwe website online staat? <span class="plus">+</span></summary><p>Gemiddeld 3 à 4 weken, afhankelijk van de grootte van de website en hoe snel we teksten en foto's van u krijgen.</p></details>
+        <details><summary>Hoe lang duurt het voor mijn nieuwe website online staat? <span class="plus">+</span></summary><p>Een Start-website staat binnen 2 weken online, een Pro-website binnen 3 à 4 weken. Dat hangt ook af van hoe snel we teksten en foto's van u krijgen.</p></details>
         <details><summary>Kan ik mijn huidige domeinnaam en e-mailadressen houden? <span class="plus">+</span></summary><p>Ja. Uw domeinnaam en e-mailadressen blijven gewoon behouden. Wij zorgen dat de overstap zonder onderbreking verloopt.</p></details>
         <details><summary>Ik heb geen teksten of foto's. Is dat een probleem? <span class="plus">+</span></summary><p>Helemaal niet. We helpen u met duidelijke teksten en gebruiken rechtenvrije beelden, of schakelen een fotograaf in.</p></details>
         <details><summary>Kan ik later zelf dingen aanpassen? <span class="plus">+</span></summary><p>Ja, bij het Pro-pakket past u zelf eenvoudig teksten en foto's aan. Liever niet zelf doen? Met het onderhoudspakket regelen wij het.</p></details>
         <details><summary>Wat gebeurt er met mijn oude website? <span class="plus">+</span></summary><p>Die blijft online tot de nieuwe klaar is. Belangrijke pagina's leiden we door, zodat u uw plaats in Google niet verliest.</p></details>
+        <details><summary>Hoe verloopt de betaling? <span class="plus">+</span></summary><p>U betaalt een voorschot bij de start van het project. Het saldo betaalt u pas als u tevreden bent met het ontwerp.</p></details>
+        <details><summary>Wat als ik niet tevreden ben met het ontwerp? <span class="plus">+</span></summary><p>Dan bespreken we uw feedback en passen we het ontwerp aan. Het saldo betaalt u pas als u tevreden bent.</p></details>
+        <details><summary>Ben ik eigenaar van mijn website? <span class="plus">+</span></summary><p>Ja. Na volledige betaling is de website van u, net als uw domeinnaam. Wilt u later overstappen, dan krijgt u alle bestanden mee.</p></details>
+        <details><summary>Welke kosten komen er na de oplevering? <span class="plus">+</span></summary><p>De prijs van uw website is eenmalig. Daarna kiest u zelf: met een onderhoudsabonnement regelen wij hosting, beveiliging en aanpassingen, of u beheert het zelf. In het voorstel staat dit altijd duidelijk vermeld.</p></details>
       </div>
     </div>
   </section>
@@ -606,29 +638,18 @@
         <p style="color:var(--ink-soft);margin:0 0 26px">Vraag een gratis analyse van uw huidige website. U krijgt binnen twee werkdagen een eerlijk advies, zonder verplichtingen.</p>
         <a class="contact-line" href="mailto:quinten.decant@outlook.be"><span class="ci">✉</span><span><small>E-mail</small>quinten.decant@outlook.be</span></a>
         <a class="contact-line" href="tel:+32470214609"><span class="ci">☏</span><span><small>Telefoon</small>0470 21 46 09</span></a>
-        <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Heel de Benelux</span></div>
+        <a class="contact-line" href="https://wa.me/32470214609" target="_blank" rel="noopener"><span class="ci">💬</span><span><small>WhatsApp</small>Stuur een bericht</span></a>
+        <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span></div>
       </div>
       <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact">
         <p hidden><label>Niet invullen: <input name="bot-field"></label></p>
-        <p class="form-title">Waarmee kunnen we helpen?</p>
-        <div class="chips">
-          <label><input type="checkbox" name="interesse" value="Nieuwe website" checked><span>Nieuwe website</span></label>
-          <label><input type="checkbox" name="interesse" value="Vernieuwing"><span>Vernieuwing</span></label>
-          <label><input type="checkbox" name="interesse" value="Onderhoud"><span>Onderhoud</span></label>
-          <label><input type="checkbox" name="interesse" value="Google"><span>Beter vindbaar</span></label>
-        </div>
-        <div class="two">
-          <div class="field"><input id="f1" name="naam" placeholder=" " required autocomplete="name"><label for="f1">Naam</label></div>
-          <div class="field"><input id="f2" name="bedrijf" placeholder=" " autocomplete="organization"><label for="f2">Bedrijf</label></div>
-        </div>
-        <div class="two">
-          <div class="field"><input id="f3" type="email" name="email" placeholder=" " required autocomplete="email"><label for="f3">E-mail</label></div>
-          <div class="field"><input id="f4" type="tel" name="telefoon" placeholder=" " autocomplete="tel"><label for="f4">Telefoon</label></div>
-        </div>
+        <p class="form-title">Vraag uw gratis analyse aan</p>
+        <div class="field"><input id="f1" name="naam" placeholder=" " required autocomplete="name"><label for="f1">Naam</label></div>
+        <div class="field"><input id="f3" name="contact" placeholder=" " required autocomplete="email"><label for="f3">E-mail of telefoon</label></div>
         <div class="field"><input id="f5" name="website" placeholder=" "><label for="f5">Huidige website (optioneel)</label></div>
-        <div class="field"><textarea id="f6" name="bericht" placeholder=" "></textarea><label for="f6">Vertel kort wat u zoekt</label></div>
-        <button class="btn btn-primary magnetic" type="submit">Verstuur aanvraag <span class="arrow">→</span></button>
+        <button class="btn btn-primary magnetic" type="submit">Vraag een gratis analyse <span class="arrow">→</span></button>
+        <p class="form-note">Vrijblijvend. Ik neem binnen 2 werkdagen contact met u op.</p>
       </form>
     </div>
   </section>
@@ -638,10 +659,11 @@
 <footer>
   <div class="wrap foot">
     <div><strong>Q-Dect Web</strong>, een handelsnaam van Q-Dect BV · BTW BE 1017.683.121 · Terbekehofdreef 24, 2610 Wilrijk</div>
-    <div class="speed" title="Gemeten in uw eigen browser">⚡ Deze pagina laadde in <b id="speed">…</b> · <a href="#">Privacy</a></div>
+    <div class="speed" title="Gemeten in uw eigen browser">⚡ Deze pagina laadde in <b id="speed">…</b> · <a href="privacy.html">Privacyverklaring</a></div>
   </div>
 </footer>
 
+<div class="mobile-bar"><a class="call" href="tel:+32470214609">📞 Bel mij</a><a class="wa" href="https://wa.me/32470214609" target="_blank" rel="noopener">💬 WhatsApp</a></div>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
