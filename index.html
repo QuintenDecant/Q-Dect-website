@@ -232,6 +232,28 @@
   .verdict { font-size: 1.4rem; font-weight: 800; letter-spacing: -.02em; margin: 6px 0 6px; min-height: 2em; }
   .verdict-sub { color: var(--ink-soft); margin: 0 0 22px; min-height: 3.2em; }
 
+  /* About */
+  .about { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: center; }
+  .portrait { position: relative; max-width: 440px; justify-self: center; width: 100%; }
+  .portrait::before { content: ""; position: absolute; inset: 8% -6% -6% 8%; border-radius: 28px; background: linear-gradient(140deg, var(--brand-2), var(--accent)); opacity: .9; transform: rotate(4deg); transition: transform .6s var(--ease); }
+  .portrait:hover::before { transform: rotate(7deg) scale(1.02); }
+  .portrait img { position: relative; display: block; width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; object-position: 50% 30%; border-radius: 28px; box-shadow: var(--shadow); transition: transform .6s var(--ease); }
+  .portrait:hover img { transform: translateY(-6px) rotate(-1deg); }
+  .portrait .loc { position: absolute; left: -18px; bottom: 34px; display: flex; align-items: center; gap: 8px; background: #fff; padding: 10px 16px; border-radius: 999px; box-shadow: var(--shadow); font-weight: 600; font-size: .9rem; animation: float 5s ease-in-out infinite; }
+  .portrait .wave { position: absolute; right: -14px; top: 30px; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 16px 16px 16px 4px; box-shadow: var(--shadow); font-weight: 600; font-size: .9rem; animation: float 5s 1.2s ease-in-out infinite; }
+  .portrait .wave span { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-8px); } }
+  @keyframes wave { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(16deg); } 20%, 40% { transform: rotate(-8deg); } }
+  .about p { color: var(--ink-soft); font-size: 1.08rem; margin: 0 0 16px; }
+  .about p strong { color: var(--ink); }
+  .about-points { list-style: none; padding: 0; margin: 26px 0 30px; display: grid; gap: 12px; }
+  .about-points li { display: flex; gap: 14px; align-items: flex-start; }
+  .about-points i { flex: none; width: 38px; height: 38px; border-radius: 12px; background: #e3f3ef; display: grid; place-items: center; font-style: normal; }
+  .about-points b { display: block; }
+  .about-points span { color: var(--ink-soft); font-size: .95rem; }
+  .sign { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .sign .serif { font-size: 1.7rem; color: var(--brand); }
+
   /* Pricing */
   .price { display: flex; flex-direction: column; }
   .price .amount { font-size: 2.3rem; font-weight: 800; margin: 10px 0 2px; letter-spacing: -.03em; }
@@ -298,7 +320,9 @@
   .toast.show { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
 
   @media (max-width: 960px) {
-    .hero-grid, .contact-grid, .quiz { grid-template-columns: 1fr; }
+    .hero-grid, .contact-grid, .quiz, .about { grid-template-columns: 1fr; }
+    .about { gap: 50px; }
+    .portrait { max-width: 360px; }
     .hero { padding-top: 120px; }
     .ba { transform: none; }
     .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
@@ -333,6 +357,7 @@
       <li><a href="#diensten">Diensten</a></li>
       <li><a href="#werkwijze">Werkwijze</a></li>
       <li><a href="#check">Website-check</a></li>
+      <li><a href="#over">Over mij</a></li>
       <li><a href="#prijzen">Prijzen</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary magnetic">Gratis analyse <span class="arrow">→</span></a>
@@ -493,6 +518,31 @@
         <div class="verdict" id="verdict">Vink iets aan…</div>
         <p class="verdict-sub" id="verdictSub">De meter toont hoe dringend een nieuwe website is.</p>
         <a href="#contact" class="btn btn-primary magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="over">
+    <div class="wrap about">
+      <div class="portrait reveal">
+        <img src="media/quinten.jpg" alt="Quinten Decant, oprichter van Q-Dect Web" loading="lazy" width="800" height="961">
+        <div class="wave"><span>👋</span> Hallo!</div>
+        <div class="loc">📍 Uit Antwerpen</div>
+      </div>
+      <div class="reveal" style="--d:.1s">
+        <span class="kicker">Over mij</span>
+        <h2>Hallo, ik ben <span class="serif">Quinten.</span></h2>
+        <p>Ik ben het gezicht achter Q-Dect Web. Met een achtergrond in automatisering en technologie weet ik hoe je techniek eenvoudig en betrouwbaar maakt. Dat doe ik nu ook voor de websites van vakmensen, zelfstandigen en KMO's.</p>
+        <p>Een goede website is voor mij geen luxe, maar een <strong>werkpaard</strong>: ze moet er goed uitzien, vlot werken op elke gsm en vooral <strong>nieuwe klanten opleveren</strong>. Geen ingewikkeld jargon of verborgen kosten, maar een eerlijk gesprek en een site waar u trots op bent.</p>
+        <ul class="about-points">
+          <li><i>🤝</i><div><b>Eén vast aanspreekpunt</b><span>U spreekt altijd met mij, van eerste gesprek tot lancering en daarna.</span></div></li>
+          <li><i>💬</i><div><b>Gewone taal</b><span>Ik leg alles uit zonder technisch jargon, zodat u weet waar u voor betaalt.</span></div></li>
+          <li><i>⚡</i><div><b>Snel bereikbaar</b><span>Een vraag of aanpassing? Een mailtje of telefoontje volstaat.</span></div></li>
+        </ul>
+        <div class="sign">
+          <span class="serif">Quinten Decant</span>
+          <a href="#contact" class="btn btn-primary magnetic">Plan een kennismaking <span class="arrow">→</span></a>
+        </div>
       </div>
     </div>
   </section>
