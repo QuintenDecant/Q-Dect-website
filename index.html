@@ -628,9 +628,7 @@
     showUrl.textContent = urls[si]; showTag.textContent = tags[si];
   };
   let rot = reduce ? null : setInterval(() => showGo((si + 1) % shots.length), 7000);
-  dots.forEach((d, i) => d.addEventListener('click', () => { showGo(i); if (rot) { clearInterval(rot); rot = setInterval(() => showGo((si + 1) % shots.length), 7000); } }));;
-    requestAnimationFrame(tick);
-  }
+  dots.forEach((d, i) => d.addEventListener('click', () => { showGo(i); if (rot) { clearInterval(rot); rot = setInterval(() => showGo((si + 1) % shots.length), 7000); } }));
 
   // Spotlight + tilt on cards
   document.querySelectorAll('.spot').forEach(c => {
