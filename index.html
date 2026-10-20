@@ -349,7 +349,7 @@
         <p class="lead reveal" style="--d:.16s">Een verouderde website kost u stilletjes klanten. Q-Dect Web bouwt snelle, veilige websites die er schitterend uitzien op elke gsm en die mensen ook écht terugvinden in Google.</p>
         <div class="hero-cta reveal" style="--d:.24s">
           <a href="#contact" class="btn btn-primary magnetic">Vraag een vrijblijvend voorstel <span class="arrow">→</span></a>
-          <a href="#check" class="btn btn-ghost">Test uw huidige website</a>
+          <a href="#check" class="btn btn-ghost">Doe de website-check</a>
         </div>
         <div class="trust reveal" style="--d:.32s">
           <div class="avatars" aria-hidden="true"><i style="background:#0e7c6b">B</i><i style="background:#f2a541">G</i><i style="background:#ff7a59">S</i><i style="background:#14a38c">+</i></div>
@@ -560,7 +560,9 @@
         <a class="contact-line" href="tel:+32470214609"><span class="ci">☏</span><span><small>Telefoon</small>0470 21 46 09</span></a>
         <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Heel de Benelux</span></div>
       </div>
-      <form class="card reveal" style="--d:.1s" id="form" action="mailto:quinten.decant@outlook.be" method="post" enctype="text/plain">
+      <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p hidden><label>Niet invullen: <input name="bot-field"></label></p>
         <p class="form-title">Waarmee kunnen we helpen?</p>
         <div class="chips">
           <label><input type="checkbox" name="interesse" value="Nieuwe website" checked><span>Nieuwe website</span></label>
@@ -696,9 +698,19 @@
 
   // Form feedback
   const toast = document.getElementById('toast');
-  document.getElementById('form').addEventListener('submit', () => {
-    toast.textContent = 'Bedankt! Uw mailprogramma opent met uw aanvraag.';
-    toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 4000);
+  const form = document.getElementById('form');
+  const showToast = msg => { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 5000); };
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
+    try {
+      const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      showToast('Bedankt! Uw aanvraag is goed ontvangen. U hoort binnen twee werkdagen van ons.');
+    } catch {
+      showToast('Er ging iets mis bij het versturen. Mail ons gerust op quinten.decant@outlook.be.');
+    } finally { btn.disabled = false; }
   });
 
   // Real load time
