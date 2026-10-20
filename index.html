@@ -103,15 +103,9 @@
   .avatars i:first-child { margin-left: 0; }
 
   /* Before/after slider */
-  .ba { position: relative; aspect-ratio: 4 / 3.3; border-radius: 22px; overflow: hidden; box-shadow: var(--shadow), 0 0 0 1px rgba(13,26,24,.06); background: #fff; user-select: none; touch-action: pan-y; transform: perspective(1200px) rotateY(-6deg) rotateX(3deg); transition: transform .8s var(--ease); }
-  .ba:hover { transform: perspective(1200px) rotateY(0) rotateX(0); }
-  .ba-layer { position: absolute; inset: 0; display: flex; flex-direction: column; }
-  .ba-old { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); z-index: 2; }
   .chrome { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: #eef1f0; border-bottom: 1px solid var(--line); font-size: .7rem; color: var(--ink-soft); }
   .chrome i { width: 9px; height: 9px; border-radius: 50%; background: #d4dbd9; }
   .chrome .url { margin-left: 10px; flex: 1; background: #fff; border-radius: 6px; padding: 3px 10px; display: flex; gap: 6px; align-items: center; }
-  .ba-old .chrome { background: #c0c0c0; border-color: #808080; font-family: Tahoma, sans-serif; }
-  .ba-old .url { border-radius: 0; color: #9b1c1c; }
   /* Hero showcase */
   .show { position: relative; aspect-ratio: 4 / 3.3; border-radius: 22px; overflow: hidden; background: #fff; display: flex; flex-direction: column; box-shadow: 0 40px 80px -30px rgba(13,26,24,.45), 0 0 0 1px rgba(13,26,24,.06); transform: perspective(1400px) rotateY(-7deg) rotateX(3deg); transition: transform .8s var(--ease); }
   .show:hover { transform: perspective(1400px) rotateY(0) rotateX(0); }
@@ -127,34 +121,9 @@
   .show-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
   .show-dots button { width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0; background: var(--line); cursor: pointer; transition: width .4s var(--ease), background .4s; }
   .show-dots button.on { width: 28px; background: var(--brand); }
-  .compare-wrap { margin-top: 80px; display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; }
-  .compare-head h3 { font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; }
-  .compare-head h3 .serif { color: var(--brand); }
-  .compare-head p { color: var(--ink-soft); margin: 0; font-size: 1.05rem; }
-  @media (max-width: 960px) { .compare-wrap { grid-template-columns: 1fr; gap: 28px; } .show { transform: none; } }
+  @media (max-width: 960px) { .show { transform: none; } }
 
-  /* Demo screens */
-  .screen { flex: 1; min-height: 0; position: relative; overflow: hidden; background: #fff; }
-  .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; display: block; }
-  .ba-new .screen img { animation: scrollNew 22s cubic-bezier(.45,.05,.35,1) infinite; }
-  .ba-old .screen img { animation: scrollOld 14s steps(1) infinite; filter: saturate(.75) contrast(.95); }
-  @keyframes scrollNew { 0%, 8% { object-position: 50% 0%; } 46%, 56% { object-position: 50% 100%; } 94%, 100% { object-position: 50% 0%; } }
-  @keyframes scrollOld { 0%, 30% { object-position: 50% 0%; } 34%, 62% { object-position: 50% 55%; } 66%, 92% { object-position: 50% 100%; } 96%, 100% { object-position: 50% 0%; } }
-  .ba-new .chrome { background: #fff; }
-  .ba-new .chrome .url { background: #ecfdf5; color: #047857; font-weight: 600; }
-  .ba-new .screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%); transform: translateX(-100%); animation: shine 6s 2s ease-in-out infinite; }
   @keyframes shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-  .rec { position: absolute; top: 10px; right: 12px; z-index: 2; display: flex; align-items: center; gap: 6px; font-size: .62rem; font-weight: 700; color: #047857; }
-  .rec i { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
-  .ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; margin-left: -1.5px; background: #fff; z-index: 3; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 0 20px rgba(0,0,0,.25); pointer-events: none; }
-  .ba-handle::after { content: "⟷"; position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; color: var(--ink); display: grid; place-items: center; font-weight: 800; box-shadow: var(--shadow); }
-  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 4; margin: 0; }
-  .ba-label { position: absolute; bottom: 14px; z-index: 3; font-size: .72rem; font-weight: 700; padding: 5px 11px; border-radius: 999px; pointer-events: none; }
-  .ba-label.l { left: 14px; background: #fde2e2; color: #9b1c1c; }
-  .ba-label.r { right: 14px; background: linear-gradient(120deg, var(--accent), #ffcf70); color: #2b1a00; font-size: .8rem; padding: 6px 13px; box-shadow: 0 6px 20px rgba(242,165,65,.5); }
-  .ba-label.l { opacity: .85; }
-  .ba-hint { text-align: center; margin-top: 16px; font-size: .85rem; color: var(--ink-soft); }
-  .ba-hint b { color: var(--ink); }
 
   /* Marquee */
   .ticker { border-block: 1px solid var(--line); background: #fff; overflow: hidden; padding: 18px 0; }
@@ -335,7 +304,6 @@
     .about { gap: 50px; }
     .portrait { max-width: 360px; }
     .hero { padding-top: 120px; }
-    .ba { transform: none; }
     .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
     .timeline { grid-template-columns: 1fr 1fr; row-gap: 40px; }
     .timeline::before, .timeline .fill { display: none; }
@@ -362,7 +330,6 @@
       Q-Dect <span>Web</span>
     </a>
     <ul>
-      <li><a href="#vergelijk">Voor & na</a></li>
       <li><a href="#diensten">Diensten</a></li>
       <li><a href="#werkwijze">Werkwijze</a></li>
       <li><a href="#check">Website-check</a></li>
@@ -426,24 +393,6 @@
         <div class="card spot tilt reveal"><div class="stat" data-count="60" data-suffix="%+">0%+</div><h3>Bezoekt u via de gsm</h3><p>Is uw site niet mobielvriendelijk, dan haken bezoekers af nog vóór ze uw telefoonnummer vinden.</p></div>
         <div class="card spot tilt reveal" style="--d:.1s"><div class="stat">"Niet veilig"</div><h3>Zonder https-certificaat</h3><p>Browsers waarschuwen bezoekers voor websites zonder beveiligde verbinding. Dat schrikt meteen af.</p></div>
         <div class="card spot tilt reveal" style="--d:.2s"><div class="stat" data-count="3" data-suffix=" sec">0 sec</div><h3>En de bezoeker is weg</h3><p>Laadt uw site te traag, dan klikt men door naar de concurrent. Google straft trage sites bovendien af.</p></div>
-      </div>
-      <div class="compare-wrap reveal" id="vergelijk">
-        <div class="compare-head"><h3>Herkent u <span class="serif">uw website?</span></h3><p>Zo groot kan het verschil zijn. Sleep het bolletje.</p></div>
-          <div class="ba" id="ba" style="--pos:36%">
-            <div class="ba-layer ba-new">
-              <div class="chrome"><i></i><i></i><i></i><div class="url">🔒 houtatelier-voorbeeld.be</div></div>
-              <div class="screen"><img src="media/site-nieuw.jpg" alt="Voorbeeld van een moderne website voor een schrijnwerkerij" width="1280" height="3100"></div>
-            </div>
-            <div class="ba-layer ba-old">
-              <div class="chrome"><i></i><i></i><i></i><div class="url">⚠ Niet beveiligd | houtatelier-voorbeeld.be</div></div>
-              <div class="screen"><img src="media/site-oud.jpg" alt="Voorbeeld van een verouderde website uit 2009" width="1280" height="890"></div>
-            </div>
-            <div class="ba-handle"></div>
-            <span class="ba-label l">Vroeger</span>
-            <span class="ba-label r">✨ Met Q-Dect Web</span>
-            <input type="range" min="0" max="100" value="36" id="baRange" aria-label="Vergelijk de oude en de nieuwe website">
-          </div>
-          <p class="ba-hint">Illustratief voorbeeld</p>
       </div>
     </div>
   </section>
@@ -679,24 +628,7 @@
     showUrl.textContent = urls[si]; showTag.textContent = tags[si];
   };
   let rot = reduce ? null : setInterval(() => showGo((si + 1) % shots.length), 7000);
-  dots.forEach((d, i) => d.addEventListener('click', () => { showGo(i); if (rot) { clearInterval(rot); rot = setInterval(() => showGo((si + 1) % shots.length), 7000); } }));
-
-  // Before / after slider
-  const ba = document.getElementById('ba'), range = document.getElementById('baRange');
-  const setPos = v => ba.style.setProperty('--pos', v + '%');
-  range.addEventListener('input', () => setPos(range.value));
-  if (!reduce) {
-    let teased = false;
-    new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting || teased) return; teased = true;
-      const seq = [36, 12, 64, 36]; let i = 0;
-      const step = () => { if (i >= seq.length) return; range.value = seq[i]; ba.style.transition = 'none'; animateTo(seq[i]); i++; setTimeout(step, 700); };
-      setTimeout(step, 900);
-    }, { threshold: .6 }).observe(ba);
-  }
-  function animateTo(target) {
-    const start = parseFloat(getComputedStyle(ba).getPropertyValue('--pos')) || 50, t0 = performance.now();
-    const tick = t => { const p = Math.min((t - t0) / 600, 1), e = 1 - Math.pow(1 - p, 3); setPos(start + (target - start) * e); if (p < 1) requestAnimationFrame(tick); };
+  dots.forEach((d, i) => d.addEventListener('click', () => { showGo(i); if (rot) { clearInterval(rot); rot = setInterval(() => showGo((si + 1) % shots.length), 7000); } }));;
     requestAnimationFrame(tick);
   }
 
