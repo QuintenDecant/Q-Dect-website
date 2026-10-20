@@ -112,52 +112,19 @@
   .chrome .url { margin-left: 10px; flex: 1; background: #fff; border-radius: 6px; padding: 3px 10px; display: flex; gap: 6px; align-items: center; }
   .ba-old .chrome { background: #c0c0c0; border-color: #808080; font-family: Tahoma, sans-serif; }
   .ba-old .url { border-radius: 0; color: #9b1c1c; }
-  /* Old site */
-  .old-site { flex: 1; min-height: 0; background: #d9d2bf url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 0h6v6H0zM6 6h6v6H6z' fill='%23cfc7b2'/%3E%3C/svg%3E"); font-family: "Times New Roman", serif; color: #222; padding: 12px; display: grid; grid-template-columns: 28% 1fr; grid-template-rows: auto auto 1fr auto; gap: 8px; }
-  .old-site .banner { grid-column: 1 / -1; background: linear-gradient(#a52a2a, #6b1414); color: #ffef9c; text-align: center; font-weight: bold; padding: 8px 6px; border: 3px ridge #d4af37; font-size: clamp(.75rem, 1.5vw, .95rem); text-shadow: 2px 2px #000; white-space: nowrap; overflow: hidden; }
-  .old-site .marq { grid-column: 1 / -1; background: #000; color: #0f0; font-family: "Courier New", monospace; font-size: .68rem; overflow: hidden; white-space: nowrap; padding: 2px 0; }
-  .old-site .marq span { display: inline-block; padding-left: 100%; animation: marq 9s linear infinite; }
-  @keyframes marq { to { transform: translateX(-100%); } }
-  .old-site .side { background: #fff8dc; border: 2px outset #ccc; padding: 6px; font-size: .66rem; display: flex; flex-direction: column; gap: 2px; }
-  .old-site .side u { color: #00e; }
-  .old-site .side .gb { margin-top: auto; border-top: 1px dotted #999; padding-top: 4px; color: #555; font-style: italic; }
-  .old-site .main { background: #fffef5; border: 2px inset #ccc; padding: 8px; font-size: .66rem; display: flex; flex-direction: column; gap: 6px; min-height: 0; overflow: hidden; }
-  .old-site .main h4 { margin: 0; color: #a52a2a; font-size: .82rem; text-decoration: underline; }
-  .old-site .pics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; flex: 1; min-height: 0; }
-  .old-site .pics img { width: 100%; height: 100%; min-height: 40px; object-fit: cover; border: 3px ridge #999; filter: sepia(.5) saturate(.7) contrast(.9) blur(.4px); image-rendering: pixelated; }
-  .old-site .counter { display: inline-block; background: #000; color: #f00; font-family: "Courier New", monospace; padding: 0 4px; letter-spacing: 2px; }
-  .old-site .construct { height: 12px; background: repeating-linear-gradient(45deg, #ffd400 0 8px, #000 8px 16px); }
-  .old-site .ie { grid-column: 1 / -1; text-align: center; font-size: .6rem; color: #555; }
-  /* New site */
-  .new-site { flex: 1; min-height: 0; position: relative; color: #fff; overflow: hidden; display: flex; flex-direction: column; background: #1b120a; }
-  .new-site video, .new-site .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .new-site::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(10,92,80,.35) 0%, rgba(10,92,80,0) 30%, rgba(8,40,35,.55) 62%, rgba(8,40,35,.9) 100%); }
-  .new-site video, .new-site .poster { filter: brightness(1.25) saturate(1.3) contrast(1.05); }
-  .new-site::after { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.28) 50%, transparent 60%); transform: translateX(-100%); animation: shine 5s 1.5s ease-in-out infinite; }
-  @keyframes shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+  /* Demo screens */
+  .screen { flex: 1; min-height: 0; position: relative; overflow: hidden; background: #fff; }
+  .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; display: block; }
+  .ba-new .screen img { animation: scrollNew 22s cubic-bezier(.45,.05,.35,1) infinite; }
+  .ba-old .screen img { animation: scrollOld 14s steps(1) infinite; filter: saturate(.75) contrast(.95); }
+  @keyframes scrollNew { 0%, 8% { object-position: 50% 0%; } 46%, 56% { object-position: 50% 100%; } 94%, 100% { object-position: 50% 0%; } }
+  @keyframes scrollOld { 0%, 30% { object-position: 50% 0%; } 34%, 62% { object-position: 50% 55%; } 66%, 92% { object-position: 50% 100%; } 96%, 100% { object-position: 50% 0%; } }
   .ba-new .chrome { background: #fff; }
   .ba-new .chrome .url { background: #ecfdf5; color: #047857; font-weight: 600; }
-  .ba-old .old-site, .ba-old .chrome { filter: grayscale(.55) brightness(.88) contrast(.9); }
-  .new-site > * { position: relative; z-index: 2; }
-  .ns-nav { display: flex; justify-content: space-between; align-items: center; font-size: .68rem; padding: 14px 18px; }
-  .ns-nav b { font-size: .82rem; letter-spacing: .04em; display: flex; align-items: center; gap: 6px; }
-  .ns-nav b i { width: 18px; height: 18px; border-radius: 5px; background: var(--accent); display: inline-block; }
-  .ns-nav nav { display: flex; gap: 12px; opacity: .85; }
-  .ns-nav span { background: #fff; color: #1b120a; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
-  .ns-body { margin-top: auto; padding: 0 18px 14px; }
-  .ns-k { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-  .ns-h { font-family: Fraunces, Georgia, serif; font-style: italic; font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 700; line-height: 1.05; margin: 6px 0 12px; max-width: 85%; text-shadow: 0 4px 24px rgba(0,0,0,.45); }
-  .ns-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  .ns-cta { background: var(--accent); color: #2b1a00; font-weight: 800; font-size: .72rem; padding: 8px 15px; border-radius: 999px; box-shadow: 0 0 0 0 rgba(242,165,65,.7); animation: ctaPulse 2.2s infinite; }
-  @keyframes ctaPulse { 70% { box-shadow: 0 0 0 10px rgba(242,165,65,0); } 100% { box-shadow: 0 0 0 0 rgba(242,165,65,0); } }
-  .ns-cta2 { border: 1px solid rgba(255,255,255,.5); font-size: .68rem; padding: 6px 12px; border-radius: 999px; }
-  .ns-review { margin-left: auto; display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.14); backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 999px; font-size: .64rem; }
-  .ns-review em { color: var(--accent); font-style: normal; letter-spacing: 1px; }
-  .ns-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 18px 18px; }
-  .ns-cards figure { margin: 0; position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 8px 20px rgba(0,0,0,.35); }
-  .ns-cards img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
-  .ba:hover .ns-cards img { transform: scale(1.06); }
-  .ns-cards figcaption { position: absolute; left: 6px; bottom: 6px; font-size: .58rem; font-weight: 600; background: rgba(0,0,0,.5); padding: 2px 7px; border-radius: 999px; backdrop-filter: blur(4px); }
+  .ba-new .screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.25) 50%, transparent 60%); transform: translateX(-100%); animation: shine 6s 2s ease-in-out infinite; }
+  @keyframes shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+  .rec { position: absolute; top: 10px; right: 12px; z-index: 2; display: flex; align-items: center; gap: 6px; font-size: .62rem; font-weight: 700; color: #047857; }
+  .rec i { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
   .ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; margin-left: -1.5px; background: #fff; z-index: 3; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 0 20px rgba(0,0,0,.25); pointer-events: none; }
   .ba-handle::after { content: "⟷"; position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; color: var(--ink); display: grid; place-items: center; font-weight: 800; box-shadow: var(--shadow); }
   .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 4; margin: 0; }
@@ -357,8 +324,6 @@
   @media (max-width: 620px) {
     .grid-3, .grid-4, .two, .timeline { grid-template-columns: 1fr; }
     section { padding: 76px 0; }
-    .ns-cards { grid-template-columns: 1fr 1fr; }
-    .ns-cards div:last-child { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -409,43 +374,11 @@
         <div class="ba" id="ba" style="--pos:36%">
           <div class="ba-layer ba-new">
             <div class="chrome"><i></i><i></i><i></i><div class="url">🔒 houtatelier-voorbeeld.be</div></div>
-            <div class="new-site">
-              <img class="poster" src="media/hero-poster.jpg" alt="">
-              <video autoplay muted loop playsinline preload="metadata" poster="media/hero-poster.jpg">
-                <source src="media/atelier.mp4" type="video/mp4">
-              </video>
-              <div class="ns-nav"><b><i></i>HOUTATELIER</b><nav>Maatwerk · Realisaties · Over ons</nav><span>Offerte</span></div>
-              <div class="ns-body">
-                <div class="ns-k">Schrijnwerkerij sinds 1998</div>
-                <div class="ns-h">Maatwerk in hout dat generaties meegaat.</div>
-                <div class="ns-row"><span class="ns-cta">Vraag een offerte →</span><span class="ns-cta2">Bekijk realisaties</span><span class="ns-review"><em>★★★★★</em> 4,9 op Google</span></div>
-              </div>
-              <div class="ns-cards">
-                <figure><img src="media/keuken.jpg" alt=""><figcaption>Keukens</figcaption></figure>
-                <figure><img src="media/atelier.jpg" alt=""><figcaption>Atelier</figcaption></figure>
-                <figure><img src="media/interieur.jpg" alt=""><figcaption>Interieur</figcaption></figure>
-              </div>
-            </div>
+            <div class="screen"><img src="media/site-nieuw.jpg" alt="Voorbeeld van een moderne website voor een schrijnwerkerij" width="1280" height="3100"></div>
           </div>
           <div class="ba-layer ba-old">
             <div class="chrome"><i></i><i></i><i></i><div class="url">⚠ Niet beveiligd | houtatelier-voorbeeld.be</div></div>
-            <div class="old-site">
-              <div class="banner">~*~ WELKOM BIJ HOUTATELIER ~*~</div>
-              <div class="marq"><span>!!! NIEUW: bekijk onze foto's van 2009 !!! Openingsuren gewijzigd !!! Teken ons gastenboek !!!</span></div>
-              <div class="side"><b>Menu</b><u>Home</u><u>Foto's</u><u>Gastenboek</u><u>Links</u><u>Contact</u><span class="gb">"Mooi werk!!" - Jos, 2010</span></div>
-              <div class="main">
-                <h4>Onze realisaties</h4>
-                <span>Klik op de foto's voor een grotere versie. (kan even duren)</span>
-                <div class="pics">
-                  <img src="media/keuken-oud.jpg" alt="">
-                  <img src="media/atelier-oud.jpg" alt="">
-                  <img src="media/interieur-oud.jpg" alt="">
-                </div>
-                <span>U bent bezoeker nr. <span class="counter">004213</span></span>
-                <div class="construct"></div>
-              </div>
-              <div class="ie">Best bekeken met Internet Explorer 6 in 1024x768 · Laatste update: 12/03/2011</div>
-            </div>
+            <div class="screen"><img src="media/site-oud.jpg" alt="Voorbeeld van een verouderde website uit 2009" width="1280" height="890"></div>
           </div>
           <div class="ba-handle"></div>
           <span class="ba-label l">Vroeger</span>
@@ -701,8 +634,6 @@
 
   // Before / after slider
   const ba = document.getElementById('ba'), range = document.getElementById('baRange');
-  const vid = ba.querySelector('video');
-  if (reduce && vid) { vid.removeAttribute('autoplay'); vid.pause(); }
   const setPos = v => ba.style.setProperty('--pos', v + '%');
   range.addEventListener('input', () => setPos(range.value));
   if (!reduce) {
