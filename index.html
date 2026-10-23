@@ -557,9 +557,11 @@
         <a class="contact-line" href="https://wa.me/32470214609" target="_blank" rel="noopener"><span class="ci">💬</span><span><small>WhatsApp</small>Stuur een bericht</span></a>
         <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span></div>
       </div>
-      <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p hidden><label>Niet invullen: <input name="bot-field"></label></p>
+      <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="https://formsubmit.co/info@qdect.be">
+        <input type="hidden" name="_subject" value="Nieuwe aanvraag via qdect.be">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <p class="form-title">Vraag uw gratis analyse aan</p>
         <div class="field"><input id="f1" name="naam" placeholder=" " required autocomplete="name"><label for="f1">Naam</label></div>
         <div class="field"><input id="f3" name="contact" placeholder=" " required autocomplete="email"><label for="f3">E-mail of telefoon</label></div>
@@ -682,7 +684,7 @@
     e.preventDefault();
     const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
     try {
-      const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() });
+      const res = await fetch('https://formsubmit.co/ajax/info@qdect.be', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
       if (!res.ok) throw new Error(res.status);
       form.reset();
       showToast('Bedankt! Uw aanvraag is goed ontvangen. U hoort binnen twee werkdagen van ons.');
