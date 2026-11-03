@@ -222,10 +222,6 @@
   .featured-wrap .badge { position: absolute; top: 22px; right: 22px; background: var(--accent); color: var(--ink); font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
   @property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
   @keyframes spin { to { --a: 360deg; } }
-  .promise { display: flex; align-items: center; gap: 16px; max-width: 640px; margin: 40px auto 0; padding: 18px 22px; border-radius: 16px; background: #fff; border: 1.5px solid rgba(14,124,107,.3); box-shadow: 0 10px 30px -18px rgba(14,124,107,.5); }
-  .promise-ico { font-size: 1.8rem; }
-  .promise b { display: block; color: var(--brand-dark); }
-  .promise span { color: var(--ink-soft); }
   .mobile-bar { display: none; }
   @media (max-width: 620px) {
     .mobile-bar { display: flex; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 45; gap: 10px; }
@@ -463,15 +459,12 @@
           <ul><li>Website van 1 tot 3 pagina's</li><li>Contactformulier en klikbaar telefoonnummer</li><li>Basis Google-optimalisatie</li><li>Online binnen 2 weken</li></ul>
           <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
-        <div class="featured-wrap reveal" style="--d:.1s">
-          <div class="card price">
-            <span class="badge">Meest gekozen</span>
-            <h3>Pro</h3>
-            <p>Voor KMO's die hun diensten en realisaties willen tonen.</p>
-            <div class="amount">vanaf €1.000 <small style="color:rgba(255,255,255,.6)">eenmalig</small></div>
-            <ul><li>Tot 8 pagina's</li><li>Fotogalerij met realisaties</li><li>Offerteformulier</li><li>Google Bedrijfsprofiel op punt</li><li>Zelf teksten en foto's aanpassen</li><li>Online binnen 3 à 4 weken</li></ul>
-            <a href="#contact" class="btn btn-accent magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
-          </div>
+        <div class="card price spot reveal" style="--d:.1s">
+          <h3>Pro</h3>
+          <p>Voor KMO's die hun diensten en realisaties willen tonen.</p>
+          <div class="amount">vanaf €1.000 <small>eenmalig</small></div>
+          <ul><li>Tot 8 pagina's</li><li>Fotogalerij met realisaties</li><li>Offerteformulier</li><li>Google Bedrijfsprofiel op punt</li><li>Zelf teksten en foto's aanpassen</li><li>Online binnen 3 à 4 weken</li></ul>
+          <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
         <div class="card price spot reveal" style="--d:.2s">
           <h3>Onderhoud op maat</h3>
@@ -480,15 +473,17 @@
           <ul><li>Hosting inbegrepen</li><li>Https-certificaat en back-ups van elke versie</li><li>Aanpassingen volgens afspraak</li><li>Persoonlijke support via mail of telefoon</li></ul>
           <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
-        <div class="card price spot reveal" style="--d:.3s">
-          <h3>Software op maat</h3>
-          <p>Minder handwerk, meer tijd voor uw klanten.</p>
-          <div class="amount">Op aanvraag</div>
-          <ul><li>Analyse van uw werkwijze</li><li>Terugkerend werk automatiseren</li><li>Een eigen tool voor uw zaak</li><li>Koppeling met uw bestaande software</li></ul>
-          <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
+        <div class="featured-wrap reveal" style="--d:.3s">
+          <div class="card price">
+            <span class="badge">Meest gekozen</span>
+            <h3>Software op maat</h3>
+            <p>Minder handwerk, meer tijd voor uw klanten.</p>
+            <div class="amount">Op aanvraag</div>
+            <ul><li>Analyse van uw werkwijze</li><li>Terugkerend werk automatiseren</li><li>Een eigen tool voor uw zaak</li><li>Koppeling met uw bestaande software</li></ul>
+            <a href="#contact" class="btn btn-accent magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
+          </div>
         </div>
       </div>
-      <div class="promise reveal"><span class="promise-ico">🛡️</span><div><b>Onze belofte</b><span>U betaalt pas het saldo als u tevreden bent met het ontwerp.</span></div></div>
       <p class="note reveal">Een webshop of iets anders in gedachten? Dan maken we een voorstel op maat.</p>
     </div>
   </section>
