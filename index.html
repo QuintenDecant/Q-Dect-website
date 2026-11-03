@@ -509,8 +509,9 @@
         <div class="field"><input id="f1" name="naam" placeholder=" " required autocomplete="name"><label for="f1">Naam</label></div>
         <div class="field"><input id="f3" name="contact" placeholder=" " required autocomplete="email"><label for="f3">E-mail of telefoon</label></div>
         <div class="field"><input id="f5" name="website" placeholder=" "><label for="f5">Huidige website (optioneel)</label></div>
+        <div class="field"><textarea id="f6" name="bericht" placeholder=" "></textarea><label for="f6">Uw bericht (optioneel)</label></div>
         <button class="btn btn-primary magnetic" type="submit">Vraag een gratis analyse <span class="arrow">→</span></button>
-        <p class="form-note">Vrijblijvend. We nemen binnen 2 werkdagen contact met u op.</p>
+        <p class="form-note">Vrijblijvend. Ik neem binnen 2 werkdagen contact met u op.</p>
       </form>
     </div>
   </section>
@@ -612,15 +613,17 @@
   const showToast = msg => { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 5000); };
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
+    const btn = form.querySelector('button[type=submit]'), label = btn.innerHTML;
+    btn.disabled = true; btn.textContent = 'Bezig met versturen…';
     try {
       const res = await fetch('https://formsubmit.co/ajax/info@qdect.be', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
-      if (!res.ok) throw new Error(res.status);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
       form.reset();
-      showToast('Bedankt! Uw aanvraag is goed ontvangen. U hoort binnen twee werkdagen van ons.');
+      showToast('Bedankt! Uw aanvraag is goed ontvangen. U hoort binnen twee werkdagen van mij.');
     } catch {
       showToast('Er ging iets mis bij het versturen. Mail ons gerust op info@qdect.be.');
-    } finally { btn.disabled = false; }
+    } finally { btn.disabled = false; btn.innerHTML = label; }
   });
 
   // Real load time
