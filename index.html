@@ -500,11 +500,11 @@
         <a class="contact-line" href="https://wa.me/32470214609" target="_blank" rel="noopener"><span class="ci">💬</span><span><small>WhatsApp</small>Stuur een bericht</span></a>
         <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Actief in heel Vlaanderen en de Benelux</span></div>
       </div>
-      <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="https://formsubmit.co/info@qdect.be">
-        <input type="hidden" name="_subject" value="Nieuwe aanvraag via qdect.be">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value="9d932397-b98a-4ff9-84fc-5c57a3bfd442">
+        <input type="hidden" name="subject" value="Nieuwe aanvraag via qdect.be">
+        <input type="hidden" name="from_name" value="qdect.be">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <p class="form-title">Vraag uw gratis analyse aan</p>
         <div class="field"><input id="f1" name="naam" placeholder=" " required autocomplete="name"><label for="f1">Naam</label></div>
         <div class="field"><input id="f3" name="contact" placeholder=" " required autocomplete="email"><label for="f3">E-mail of telefoon</label></div>
@@ -616,13 +616,16 @@
     const btn = form.querySelector('button[type=submit]'), label = btn.innerHTML;
     btn.disabled = true; btn.textContent = 'Bezig met versturen…';
     try {
-      const res = await fetch('https://formsubmit.co/ajax/info@qdect.be', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form), signal: AbortSignal.timeout(12000) });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
       form.reset();
       showToast('Bedankt! Uw aanvraag is goed ontvangen. U hoort binnen twee werkdagen van mij.');
     } catch {
-      showToast('Er ging iets mis bij het versturen. Mail ons gerust op info@qdect.be.');
+      // Lukt het versturen niet, open dan de mail-app van de bezoeker met alles al ingevuld
+      const body = `Naam: ${form.naam.value}\nContact: ${form.contact.value}\nWebsite: ${form.website.value}\n\n${form.bericht.value}`;
+      location.href = `mailto:info@qdect.be?subject=${encodeURIComponent('Aanvraag gratis analyse')}&body=${encodeURIComponent(body)}`;
+      showToast('Versturen lukte niet. Uw mailprogramma opent met uw aanvraag, klik daar op verzenden.');
     } finally { btn.disabled = false; btn.innerHTML = label; }
   });
 
