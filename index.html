@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Q-Dect Web | Websites die klanten opleveren</title>
-<meta name="description" content="Q-Dect Web bouwt snelle, veilige en mobielvriendelijke websites voor vakmensen, zelfstandigen en KMO's. Uit Antwerpen, actief in heel Vlaanderen en de Benelux. Vaste prijs, persoonlijke opvolging.">
+<title>Q-Dect Web | Websites en software op maat</title>
+<meta name="description" content="Q-Dect Web bouwt snelle, veilige websites en software op maat voor vakmensen, zelfstandigen en KMO's. Actief in heel Vlaanderen en de Benelux. Vaste prijs, persoonlijke opvolging.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://qdect.be/">
 <meta name="theme-color" content="#0d1a18">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="nl_BE">
 <meta property="og:site_name" content="Q-Dect Web">
-<meta property="og:title" content="Q-Dect Web | Websites die klanten opleveren">
-<meta property="og:description" content="Snelle, veilige en mobielvriendelijke websites voor vakmensen, zelfstandigen en KMO's. Vaste prijs en gratis analyse van uw huidige website.">
+<meta property="og:title" content="Q-Dect Web | Websites en software op maat">
+<meta property="og:description" content="Snelle, veilige websites en software op maat voor vakmensen, zelfstandigen en KMO's. Vaste prijs en gratis analyse.">
 <meta property="og:url" content="https://qdect.be/">
 <meta property="og:image" content="https://qdect.be/media/og.png">
 <meta property="og:image:width" content="1200">
@@ -81,7 +81,7 @@
   @keyframes drift { to { transform: translate(60px, 40px) scale(1.12); } }
   .grain { position: absolute; inset: 0; z-index: -1; opacity: .35; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E"); }
 
-  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+  .hero-grid { max-width: 820px; }
   .pill { display: inline-flex; align-items: center; gap: 10px; font-size: .85rem; font-weight: 600; color: var(--brand-dark); background: rgba(255,255,255,.7); border: 1px solid var(--line); padding: 6px 14px 6px 6px; border-radius: 999px; backdrop-filter: blur(6px); }
   .pill b { background: var(--brand); color: #fff; font-size: .72rem; padding: 3px 9px; border-radius: 999px; letter-spacing: .04em; }
   .pulse { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,.6); animation: pulse 2s infinite; }
@@ -106,22 +106,6 @@
   .chrome { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: #eef1f0; border-bottom: 1px solid var(--line); font-size: .7rem; color: var(--ink-soft); }
   .chrome i { width: 9px; height: 9px; border-radius: 50%; background: #d4dbd9; }
   .chrome .url { margin-left: 10px; flex: 1; background: #fff; border-radius: 6px; padding: 3px 10px; display: flex; gap: 6px; align-items: center; }
-  /* Hero showcase */
-  .show { position: relative; aspect-ratio: 4 / 3.3; border-radius: 22px; overflow: hidden; background: #fff; display: flex; flex-direction: column; box-shadow: 0 40px 80px -30px rgba(13,26,24,.45), 0 0 0 1px rgba(13,26,24,.06); transform: perspective(1400px) rotateY(-7deg) rotateX(3deg); transition: transform .8s var(--ease); }
-  .show:hover { transform: perspective(1400px) rotateY(0) rotateX(0); }
-  .show .chrome { background: #fff; }
-  .show .chrome .url { background: #ecfdf5; color: #047857; font-weight: 600; transition: opacity .3s; }
-  .screens { position: relative; flex: 1; min-height: 0; overflow: hidden; }
-  .screens img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; opacity: 0; transform: scale(1.03); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-  .screens img.on { opacity: 1; transform: none; animation: showScroll 9s cubic-bezier(.45,.05,.35,1) forwards; }
-  @keyframes showScroll { 0%, 18% { object-position: 50% 0%; } 100% { object-position: 50% 62%; } }
-  .show-label { position: absolute; right: 14px; bottom: 14px; z-index: 3; font-size: .8rem; font-weight: 700; padding: 6px 13px; border-radius: 999px; background: linear-gradient(120deg, var(--accent), #ffcf70); color: #2b1a00; box-shadow: 0 6px 20px rgba(242,165,65,.5); }
-  .show-tag { position: absolute; left: 14px; bottom: 14px; z-index: 3; font-size: .75rem; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: rgba(13,26,24,.82); color: #fff; backdrop-filter: blur(6px); }
-  .show-cap { text-align: center; margin: 16px 0 0; font-size: .9rem; color: var(--ink-soft); }
-  .show-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
-  .show-dots button { width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0; background: var(--line); cursor: pointer; transition: width .4s var(--ease), background .4s; }
-  .show-dots button.on { width: 28px; background: var(--brand); }
-  @media (max-width: 960px) { .show { transform: none; } }
 
   @keyframes shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
@@ -223,6 +207,7 @@
   /* Pricing */
   .price { display: flex; flex-direction: column; }
   .price .amount { font-size: 2.3rem; font-weight: 800; margin: 10px 0 2px; letter-spacing: -.03em; }
+  .grid-4 .price .amount { font-size: 1.75rem; white-space: nowrap; }
   .price .amount small { font-size: .9rem; font-weight: 500; color: var(--ink-soft); letter-spacing: 0; }
   .price ul { list-style: none; padding: 0; margin: 20px 0 28px; flex: 1; }
   .price li { padding: 8px 0; color: var(--ink-soft); border-bottom: 1px dashed var(--line); display: flex; gap: 10px; }
@@ -251,17 +236,6 @@
     .toast { bottom: 90px; }
   }
   .note { margin-top: 26px; color: var(--ink-soft); font-size: .95rem; text-align: center; }
-
-  /* FAQ */
-  .faq { max-width: 820px; }
-  details { background: #fff; border: 1px solid var(--line); border-radius: 16px; margin-bottom: 12px; transition: border-color .3s, box-shadow .3s; }
-  details:hover { border-color: rgba(14,124,107,.35); }
-  details[open] { box-shadow: var(--shadow); border-color: transparent; }
-  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px; font-size: 1.05rem; }
-  summary::-webkit-details-marker { display: none; }
-  summary .plus { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bg-soft); display: grid; place-items: center; transition: transform .4s var(--ease), background .3s; font-weight: 700; color: var(--brand); }
-  details[open] .plus { transform: rotate(45deg); background: var(--brand); color: #fff; }
-  details p { color: var(--ink-soft); margin: 0; padding: 0 24px 22px; }
 
   /* Contact */
   .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
@@ -335,6 +309,7 @@
       <li><a href="#check">Website-check</a></li>
       <li><a href="#over">Over mij</a></li>
       <li><a href="#prijzen">Prijzen</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary magnetic">Gratis analyse <span class="arrow">→</span></a>
   </div>
@@ -345,32 +320,17 @@
     <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grain"></div>
     <div class="wrap hero-grid">
       <div>
-        <span class="pill reveal"><b>GRATIS</b><span class="pulse"></span> Analyse van uw huidige website</span>
-        <h1 class="reveal" style="--d:.08s">Een website die <span class="underline">klanten<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 80 4, 200 4, 298 12" fill="none" stroke="#f2a541" stroke-width="6" stroke-linecap="round"/></svg></span> oplevert voor uw <span class="rotator" aria-live="polite"><span class="on">zaak.</span><span>kantoor.</span><span>praktijk.</span><span>winkel.</span><span>bedrijf.</span></span></h1>
-        <p class="lead reveal" style="--d:.16s">Een verouderde website kost u stilletjes klanten. Q-Dect Web bouwt snelle, veilige websites die op elk toestel vlot werken en goed gevonden worden in Google.</p>
+        <span class="pill reveal"><b>GRATIS</b><span class="pulse"></span> Analyse van uw website of werkwijze</span>
+        <h1 class="reveal" style="--d:.08s">Websites en software die <span class="underline">klanten<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 80 4, 200 4, 298 12" fill="none" stroke="#f2a541" stroke-width="6" stroke-linecap="round"/></svg></span> opleveren voor uw <span class="rotator" aria-live="polite"><span class="on">zaak.</span><span>kantoor.</span><span>praktijk.</span><span>winkel.</span><span>bedrijf.</span></span></h1>
+        <p class="lead reveal" style="--d:.16s">Verliest uw bedrijf klanten of tijd? Q-Dect Web vindt waar het knelt en bouwt de <strong>oplossing op maat</strong>: een website die klanten oplevert, of software die u werk uit handen neemt.</p>
         <div class="hero-cta reveal" style="--d:.24s">
           <a href="#contact" class="btn btn-primary magnetic">Vraag een gratis analyse <span class="arrow">→</span></a>
           <a href="#check" class="btn btn-ghost">Doe de website-check</a>
         </div>
         <div class="trust reveal" style="--d:.32s">
           <div class="avatars" aria-hidden="true"><i style="background:#0e7c6b">B</i><i style="background:#f2a541">G</i><i style="background:#ff7a59">S</i><i style="background:#14a38c">+</i></div>
-          <span>Voor zelfstandigen, KMO's en vrije beroepen in elke sector. Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span>
+          <span>Voor zelfstandigen, KMO's en vrije beroepen in elke sector. Actief in heel Vlaanderen en de Benelux</span>
         </div>
-      </div>
-
-      <div class="reveal" style="--d:.2s">
-        <div class="show" id="show">
-          <div class="chrome"><i></i><i></i><i></i><div class="url" id="showUrl">🔒 bouwteam-voorbeeld.be</div></div>
-          <div class="screens">
-            <img class="on" src="media/site-renovatie.jpg" alt="Voorbeeld van een moderne website voor een renovatiebedrijf" width="1280" height="3100">
-            <img src="media/site-garage.jpg" alt="Voorbeeld van een moderne website voor een garage" width="1280" height="3100" loading="lazy">
-            <img src="media/site-bakkerij.jpg" alt="Voorbeeld van een moderne website voor een bakkerij" width="1280" height="3100" loading="lazy">
-          </div>
-          <span class="show-tag" id="showTag">Voorbeeld · Renovatie</span>
-          <span class="show-label">✨ Gemaakt door Q-Dect Web</span>
-        </div>
-        <p class="show-cap">Drie voorbeelden uit honderden mogelijkheden. Elke sector, elke stijl, volledig op maat.</p>
-        <div class="show-dots" id="showDots"><button class="on" aria-label="Renovatie"></button><button aria-label="Garage"></button><button aria-label="Bakkerij"></button></div>
       </div>
     </div>
   </section>
@@ -401,14 +361,14 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="kicker">Diensten</span>
-        <h2>Alles voor een website die <span class="serif">voor u werkt.</span></h2>
-        <p>U focust op uw vak. Wij zorgen dat uw zaak online even sterk overkomt als in het echt.</p>
+        <h2>Websites en software die <span class="serif">voor u werken.</span></h2>
+        <p>U focust op uw vak. Q-Dect Web zorgt voor een sterke online aanwezigheid en software die u tijd bespaart.</p>
       </div>
       <div class="grid-4">
-        <div class="card svc spot tilt reveal"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div><h3>Nieuwe website</h3><p>Op maat van uw zaak, in uw eigen huisstijl, met teksten die verkopen.</p><span class="more">Meer weten →</span></div>
-        <div class="card svc spot tilt reveal" style="--d:.08s"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div><h3>Vernieuwing</h3><p>Uw bestaande site in een nieuw jasje, zonder uw plaats in Google te verliezen.</p><span class="more">Meer weten →</span></div>
-        <div class="card svc spot tilt reveal" style="--d:.16s"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Hosting & onderhoud</h3><p>Veilige hosting, https en back-ups, plus kleine aanpassingen. U hoeft er nooit meer naar om te kijken.</p><span class="more">Meer weten →</span></div>
-        <div class="card svc spot tilt reveal" style="--d:.24s"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M8 11h6M11 8v6"/></svg></div><h3>Vindbaarheid</h3><p>Technisch sterk voor Google, plus een Google Bedrijfsprofiel dat klopt.</p><span class="more">Meer weten →</span></div>
+        <div class="card svc spot tilt reveal"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div><h3>Nieuwe website</h3><p>Op maat van uw zaak, in uw eigen huisstijl. Of uw bestaande site vernieuwd, zonder uw plaats in Google te verliezen.</p></div>
+        <div class="card svc spot tilt reveal" style="--d:.08s"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div><h3>Software op maat</h3><p>Repetitief werk automatiseren of een eigen tool voor uw zaak. Minder handwerk, meer tijd voor uw klanten.</p></div>
+        <div class="card svc spot tilt reveal" style="--d:.16s"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Hosting & onderhoud</h3><p>Veilige hosting, https en back-ups, plus kleine aanpassingen. U hoeft er nooit meer naar om te kijken.</p></div>
+        <div class="card svc spot tilt reveal" style="--d:.24s"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M8 11h6M11 8v6"/></svg></div><h3>Vindbaarheid</h3><p>Technisch sterk voor Google, plus een Google Bedrijfsprofiel dat klopt.</p></div>
       </div>
     </div>
   </section>
@@ -422,10 +382,10 @@
       </div>
       <div class="timeline" id="timeline">
         <div class="fill"></div>
-        <div class="step"><div class="dot">1</div><h3>Kennismaking</h3><p>We bespreken uw zaak, uw klanten en wat uw website moet opleveren.</p><span class="time">± 30 minuten</span></div>
+        <div class="step"><div class="dot">1</div><h3>Kennismaking</h3><p>We bespreken uw zaak, uw klanten en wat uw website of software moet opleveren.</p><span class="time">± 30 minuten</span></div>
         <div class="step"><div class="dot">2</div><h3>Voorstel</h3><p>U krijgt een helder voorstel met vaste prijs en planning. Geen kleine lettertjes.</p><span class="time">Binnen 2 werkdagen</span></div>
         <div class="step"><div class="dot">3</div><h3>Ontwerp & bouw</h3><p>We tonen het ontwerp, verwerken uw feedback en bouwen alles af.</p><span class="time">Start: 2 weken · Pro: 3 à 4 weken</span></div>
-        <div class="step"><div class="dot">4</div><h3>Lancering</h3><p>Uw site gaat live. Daarna blijven we beschikbaar voor aanpassingen.</p><span class="time">🚀 Online!</span></div>
+        <div class="step"><div class="dot">4</div><h3>Lancering</h3><p>Uw website of software gaat live. Daarna blijven we beschikbaar voor aanpassingen.</p><span class="time">🚀 Online!</span></div>
       </div>
     </div>
   </section>
@@ -473,12 +433,12 @@
       <div class="reveal" style="--d:.1s">
         <span class="kicker">Over mij</span>
         <h2>Hallo, ik ben <span class="serif">Quinten.</span></h2>
-        <p>Ik ben het gezicht achter Q-Dect Web. Met een achtergrond in automatisering en technologie weet ik hoe je techniek eenvoudig en betrouwbaar maakt. Dat doe ik nu ook voor de websites van vakmensen, zelfstandigen en KMO's.</p>
-        <p>Een goede website is voor mij geen luxe, maar een <strong>werkpaard</strong>: ze moet er goed uitzien, vlot werken op elke gsm en vooral <strong>nieuwe klanten opleveren</strong>. Geen ingewikkeld jargon of verborgen kosten, maar een eerlijk gesprek en een site waar u trots op bent.</p>
+        <p>Bij Q-Dect Web is een goede website geen luxe, maar een <strong>must</strong>: ze moet er goed uitzien, vlot werken op elk toestel en vooral <strong>nieuwe klanten opleveren</strong>.</p>
+        <p>Daarnaast helpen we bedrijven om <strong>tijd te winnen</strong>. Werk dat elke dag of week terugkomt, nemen we u uit handen met een oplossing op maat.</p>
         <ul class="about-points">
-          <li><i>🤝</i><div><b>Eén vast aanspreekpunt</b><span>U spreekt altijd met mij, van eerste gesprek tot lancering en daarna.</span></div></li>
-          <li><i>💬</i><div><b>Gewone taal</b><span>Ik leg alles uit zonder technisch jargon, zodat u weet waar u voor betaalt.</span></div></li>
-          <li><i>⚡</i><div><b>Snel bereikbaar</b><span>Een vraag of aanpassing? Een mailtje of telefoontje volstaat.</span></div></li>
+          <li><i>🤝</i><div><b>Eén vast aanspreekpunt</b><span>U hebt altijd dezelfde contactpersoon, van eerste gesprek tot lancering en daarna.</span></div></li>
+          <li><i>💬</i><div><b>Gewone taal</b><span>We leggen alles uit zonder technisch jargon, zodat u weet waar u voor betaalt.</span></div></li>
+          <li><i>⚡</i><div><b>Snel bereikbaar</b><span>Een vraag of aanpassing? Een berichtje is genoeg.</span></div></li>
         </ul>
         <div class="sign">
           <span class="serif">Quinten Decant</span>
@@ -495,7 +455,7 @@
         <h2>Duidelijke prijzen, <span class="serif">geen verrassingen.</span></h2>
         <p>Alle prijzen excl. btw. Elk pakket is mobielvriendelijk, beveiligd met https en bevat een contactformulier.</p>
       </div>
-      <div class="grid-3" style="align-items:stretch">
+      <div class="grid-4" style="align-items:stretch">
         <div class="card price spot reveal">
           <h3>Start</h3>
           <p>Snel en professioneel online, ideaal voor zelfstandigen.</p>
@@ -520,42 +480,30 @@
           <ul><li>Hosting inbegrepen</li><li>Https-certificaat en back-ups van elke versie</li><li>Aanpassingen volgens afspraak</li><li>Persoonlijke support via mail of telefoon</li></ul>
           <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
         </div>
+        <div class="card price spot reveal" style="--d:.3s">
+          <h3>Software op maat</h3>
+          <p>Minder handwerk, meer tijd voor uw klanten.</p>
+          <div class="amount">Op aanvraag</div>
+          <ul><li>Analyse van uw werkwijze</li><li>Terugkerend werk automatiseren</li><li>Een eigen tool voor uw zaak</li><li>Koppeling met uw bestaande software</li></ul>
+          <a href="#contact" class="btn btn-ghost">Vraag een gratis analyse <span class="arrow">→</span></a>
+        </div>
       </div>
       <div class="promise reveal"><span class="promise-ico">🛡️</span><div><b>Onze belofte</b><span>U betaalt pas het saldo als u tevreden bent met het ontwerp.</span></div></div>
-      <p class="note reveal">Webshop of koppeling met uw software nodig? Dan maken we graag een voorstel op maat.</p>
+      <p class="note reveal">Een webshop of iets anders in gedachten? Dan maken we een voorstel op maat.</p>
     </div>
   </section>
 
-  <section id="faq">
-    <div class="wrap faq">
-      <div class="section-head reveal">
-        <span class="kicker">Veelgestelde vragen</span>
-        <h2>Goed om <span class="serif">te weten.</span></h2>
-      </div>
-      <div class="reveal">
-        <details><summary>Hoe lang duurt het voor mijn nieuwe website online staat? <span class="plus">+</span></summary><p>Een Start-website staat binnen 2 weken online, een Pro-website binnen 3 à 4 weken. Dat hangt ook af van hoe snel we teksten en foto's van u krijgen.</p></details>
-        <details><summary>Kan ik mijn huidige domeinnaam en e-mailadressen houden? <span class="plus">+</span></summary><p>Ja. Uw domeinnaam en e-mailadressen blijven gewoon behouden. Wij zorgen dat de overstap zonder onderbreking verloopt.</p></details>
-        <details><summary>Ik heb geen teksten of foto's. Is dat een probleem? <span class="plus">+</span></summary><p>Helemaal niet. We helpen u met duidelijke teksten en gebruiken rechtenvrije beelden, of schakelen een fotograaf in.</p></details>
-        <details><summary>Kan ik later zelf dingen aanpassen? <span class="plus">+</span></summary><p>Ja, bij het Pro-pakket past u zelf eenvoudig teksten en foto's aan. Liever niet zelf doen? Met het onderhoudspakket regelen wij het.</p></details>
-        <details><summary>Wat gebeurt er met mijn oude website? <span class="plus">+</span></summary><p>Die blijft online tot de nieuwe klaar is. Belangrijke pagina's leiden we door, zodat u uw plaats in Google niet verliest.</p></details>
-        <details><summary>Hoe verloopt de betaling? <span class="plus">+</span></summary><p>U betaalt een voorschot bij de start van het project. Het saldo betaalt u pas als u tevreden bent met het ontwerp.</p></details>
-        <details><summary>Wat als ik niet tevreden ben met het ontwerp? <span class="plus">+</span></summary><p>Dan bespreken we uw feedback en passen we het ontwerp aan. Het saldo betaalt u pas als u tevreden bent.</p></details>
-        <details><summary>Ben ik eigenaar van mijn website? <span class="plus">+</span></summary><p>Ja. Na volledige betaling is de website van u, net als uw domeinnaam. Wilt u later overstappen, dan krijgt u alle bestanden mee.</p></details>
-        <details><summary>Welke kosten komen er na de oplevering? <span class="plus">+</span></summary><p>De prijs van uw website is eenmalig. Daarna kiest u zelf: met een onderhoudsabonnement regelen wij hosting, beveiliging en aanpassingen, of u beheert het zelf. In het voorstel staat dit altijd duidelijk vermeld.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="soft">
+  <section id="contact">
     <div class="wrap contact-grid">
       <div class="contact-info reveal">
         <span class="kicker">Contact</span>
-        <h2>Benieuwd wat een nieuwe website <span class="serif">voor u kan doen?</span></h2>
-        <p style="color:var(--ink-soft);margin:0 0 26px">Vraag een gratis analyse van uw huidige website. U krijgt binnen twee werkdagen een eerlijk advies, zonder verplichtingen.</p>
+        <h2>Benieuwd wat Q-Dect Web <span class="serif">voor u kan doen?</span></h2>
+        <p style="color:var(--ink-soft);margin:0 0 26px">Vraag een gratis analyse van uw website of werkwijze. U krijgt binnen twee werkdagen een eerlijk advies, zonder verplichtingen.</p>
+        <div class="contact-line"><span class="ci">👤</span><span><small>Contactpersoon</small>Quinten Decant</span></div>
         <a class="contact-line" href="mailto:info@qdect.be"><span class="ci">✉</span><span><small>E-mail</small>info@qdect.be</span></a>
-        <a class="contact-line" href="tel:+32470214609"><span class="ci">☏</span><span><small>Telefoon</small>0470 21 46 09</span></a>
+        <a class="contact-line" href="tel:+32470214609"><span class="ci">☏</span><span><small>Telefoon</small>+32 470 21 46 09</span></a>
         <a class="contact-line" href="https://wa.me/32470214609" target="_blank" rel="noopener"><span class="ci">💬</span><span><small>WhatsApp</small>Stuur een bericht</span></a>
-        <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Uit Antwerpen, actief in heel Vlaanderen en de Benelux</span></div>
+        <div class="contact-line"><span class="ci">⌖</span><span><small>Werkgebied</small>Actief in heel Vlaanderen en de Benelux</span></div>
       </div>
       <form class="card reveal" style="--d:.1s" id="form" name="contact" method="POST" action="https://formsubmit.co/info@qdect.be">
         <input type="hidden" name="_subject" value="Nieuwe aanvraag via qdect.be">
@@ -567,7 +515,7 @@
         <div class="field"><input id="f3" name="contact" placeholder=" " required autocomplete="email"><label for="f3">E-mail of telefoon</label></div>
         <div class="field"><input id="f5" name="website" placeholder=" "><label for="f5">Huidige website (optioneel)</label></div>
         <button class="btn btn-primary magnetic" type="submit">Vraag een gratis analyse <span class="arrow">→</span></button>
-        <p class="form-note">Vrijblijvend. Ik neem binnen 2 werkdagen contact met u op.</p>
+        <p class="form-note">Vrijblijvend. We nemen binnen 2 werkdagen contact met u op.</p>
       </form>
     </div>
   </section>
@@ -581,7 +529,7 @@
   </div>
 </footer>
 
-<div class="mobile-bar"><a class="call" href="tel:+32470214609">📞 Bel mij</a><a class="wa" href="https://wa.me/32470214609" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+<div class="mobile-bar"><a class="call" href="tel:+32470214609">📞 Bel ons</a><a class="wa" href="https://wa.me/32470214609" target="_blank" rel="noopener">💬 WhatsApp</a></div>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
@@ -618,19 +566,6 @@
     setTimeout(() => cur.classList.remove('off'), 500);
     wi = (wi + 1) % words.length; words[wi].classList.add('on');
   }, 2600);
-
-  // Voorbeeldsites
-  const shots = [...document.querySelectorAll('#show .screens img')], dots = [...document.querySelectorAll('#showDots button')];
-  const urls = ['🔒 bouwteam-voorbeeld.be', '🔒 garage-voorbeeld.be', '🔒 bakkerij-voorbeeld.be'], tags = ['Voorbeeld · Renovatie', 'Voorbeeld · Garage', 'Voorbeeld · Bakkerij'];
-  const showUrl = document.getElementById('showUrl'), showTag = document.getElementById('showTag'); let si = 0;
-  const showGo = n => {
-    si = n;
-    shots.forEach((s, i) => { s.classList.toggle('on', i === si); if (i === si) { s.style.animation = 'none'; s.offsetHeight; s.style.animation = ''; } });
-    dots.forEach((d, i) => d.classList.toggle('on', i === si));
-    showUrl.textContent = urls[si]; showTag.textContent = tags[si];
-  };
-  let rot = reduce ? null : setInterval(() => showGo((si + 1) % shots.length), 7000);
-  dots.forEach((d, i) => d.addEventListener('click', () => { showGo(i); if (rot) { clearInterval(rot); rot = setInterval(() => showGo((si + 1) % shots.length), 7000); } }));
 
   // Spotlight + tilt on cards
   document.querySelectorAll('.spot').forEach(c => {
